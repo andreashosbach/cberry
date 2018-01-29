@@ -5,7 +5,7 @@
 #include "RAIO8870.h"
 
 
-uint16_t init()
+uint16_t initScreen()
 {
 	if (!bcm2835_init())
 		return 0;
@@ -16,12 +16,12 @@ uint16_t init()
 	return 1;
 }
 
-void clear()
+void clearScreen()
 {
 	RAIO_clear_screen();
 }
 
-void close()
+void closeScreen()
 {
 	bcm2835_close();
 }
@@ -46,34 +46,18 @@ void drawLine(uint16_t fromX, uint16_t fromY, uint16_t toX, uint16_t toY)
 
 void drawCircle(uint16_t x, uint16_t y, uint16_t radius)
 {
-	Set_Geometric_Coordinate( x, y, x + 2 * radius, y + 2 * radius );
+	Set_Geometric_Coordinate( x , y , radius );
 	RAIO_StartDrawing ( CIRCLE_NONFILL );
 }
 
 int main( int argc, char **argv )
 {
-	init();
+	initScreen();
 
-	writeText(10, 150, "Hello C-Berry", COLOR_RED, COLOR_GREEN);
+	/*writeText(10, 150, 15, "Hello C-Berry", COLOR_RED, COLOR_GREEN);*/
+	drawCircle(100,100, 20);
 
-	close();
+	closeScreen();
 
    	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
