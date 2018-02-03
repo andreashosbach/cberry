@@ -1,6 +1,6 @@
 from ctypes import *
 
-cberry = CDLL('./cberry.so')
+cberry = CDLL('./cberrylib.so')
 
 RED = 0xE0
 BLUE = 0x03

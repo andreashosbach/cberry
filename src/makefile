@@ -3,7 +3,7 @@ exe: cberry.o tft.o RAIO8870.o
 	gcc cberry.o tft.o RAIO8870.o -lbcm2835 -lrt -lm -o cberry
 
 so: cberry.o tft.o RAIO8870.o
-	gcc -shared cberry.o tft.o RAIO8870.o -lbcm2835 -lrt -lm -o cberry.so
+	gcc -shared cberry.o tft.o RAIO8870.o -lbcm2835 -lrt -lm -o cberrylib.so
 
 tft.o: tft.c tft.h
 	gcc -Os -c tft.c
