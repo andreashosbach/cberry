@@ -26,23 +26,6 @@ void closeScreen()
 	bcm2835_close();
 }
 
-uint16_t getColor(const char* name) {
-	int i = 0;
-	char * names[9] = {"RED", "BLUE", "GREEN", "BLACK", "WHITE", "CYAN", "YELLOW", "MAGENTA", "DARK_GREEN"};
-	uint16_t colors[9] = {0xE0, 0x03, 0x1C, 0x00, 0xFF, 0x1F, 0xFC, 0xE3, 0x0C};
-
-	for(i = 0; i < 9; i = i + 1)
-	{
-		if(!strcmp(names[i], name))
-		{
-			return colors[i];
-		}
-	}
-
-	return 0x00;
-}
-
-
 void writeText( uint16_t x, uint16_t y, uint16_t fontSize, unsigned char *text, uint8_t bgColor, uint8_t fgColor )
 {
     RAIO_SetFontSizeFactor ( fontSize );
@@ -79,7 +62,12 @@ void fillCircle(uint16_t x, uint16_t y, uint16_t radius)
 	RAIO_StartDrawing ( CIRCLE_FILL );
 }
 
-setPenColor(uint16_t color)
+void setPenColor(uint16_t color)
 {
 	Text_Foreground_Color(color);
+}
+
+void setFillColor(uint16_t color)
+{
+	Text_Background_Color(color);
 }
