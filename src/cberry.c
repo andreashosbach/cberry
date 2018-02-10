@@ -34,13 +34,13 @@ void writeText( uint16_t x, uint16_t y, uint16_t fontSize, unsigned char *text, 
 
 void drawSquare(uint16_t x, uint16_t y, uint16_t width, uint16_t height)
 {
-	Set_Geometric_Coordinate( y, y, x + width, y + height );
+	Set_Geometric_Coordinate( x, y, x + width, y + height );
 	RAIO_StartDrawing ( SQUARE_NONFILL );
 }
 
 void fillSquare(uint16_t x, uint16_t y, uint16_t width, uint16_t height)
 {
-	Set_Geometric_Coordinate( y, y, x + width, y + height );
+	Set_Geometric_Coordinate( x, y, x + width, y + height );
 	RAIO_StartDrawing ( SQUARE_FILL );
 }
 
